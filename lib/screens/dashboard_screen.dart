@@ -54,11 +54,11 @@ class DashboardScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            "Back",
+                            "Recalibrate",
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               color: Colors.white,
-                              fontSize: 23,
+                              fontSize: 20,
                             ),
                           ),
                         ),
