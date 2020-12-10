@@ -1,9 +1,15 @@
 import 'package:biolocator/screens/dashboard_screen.dart';
 import 'package:biolocator/screens/map_screen.dart';
 import 'package:biolocator/screens/welcome_screen.dart';
+import 'package:biolocator/services/locationService.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future<void> main() async {
+  final locationService = LocationService();
+
+  await DotEnv().load(".env");
+  await locationService.requestLocationAccess();
   runApp(BiolocatorApp());
 }
 

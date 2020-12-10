@@ -1,15 +1,18 @@
+import 'package:biolocator/screens/dashboard_screen.dart';
+import 'package:biolocator/services/locationService.dart';
 import 'package:flutter/material.dart';
 import "package:biolocator/constants.dart";
 
 class WelcomeScreen extends StatelessWidget {
   static String id = "welcome_screen";
+  final locationService = LocationService();
   @override
   Widget build(BuildContext context) {
+    locationService.requestLocationAccess();
     return Scaffold(
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.red,
           image: DecorationImage(
             image: NetworkImage(
                 "https://www.lefthudson.com/wp-content/uploads/2019/11/blue-iphone-background-awesome-blue-blur-iphone-6-plus-wallpaper-abstract-iphone-6-plus-wallpapers-inspiration-of-blue-iphone-background.jpg"),
@@ -46,6 +49,7 @@ class WelcomeScreen extends StatelessWidget {
 class ButtonDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final locationService = LocationService();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 50.0),
       child: Row(
@@ -53,8 +57,18 @@ class ButtonDisplay extends StatelessWidget {
           Expanded(
             flex: 1,
             child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, 'dashboard_screen');
+              onTap: () async {
+                var locationData = await locationService.getUserLocation();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DashboardScreen(
+                      lat: locationData.latitude,
+                      long: locationData.longitude,
+                      altitude: locationData.altitude,
+                    ),
+                  ),
+                );
               },
               child: Padding(
                 padding: EdgeInsets.all(32.0),
@@ -65,8 +79,11 @@ class ButtonDisplay extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: Text("Initialize",
-                          style: kButtonTextStyle, textAlign: TextAlign.center),
+                      child: Text(
+                        "Initialize",
+                        style: kButtonTextStyle,
+                        textAlign: TextAlign.center,
+                      ),
                     )),
               ),
             ),
