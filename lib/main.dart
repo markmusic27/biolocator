@@ -5,8 +5,6 @@ void main() {
 }
 
 class BiolocatorApp extends StatefulWidget {
-  BiolocatorApp({Key key}) : super(key: key);
-
   @override
   _BiolocatorAppState createState() => _BiolocatorAppState();
 }
@@ -14,8 +12,12 @@ class BiolocatorApp extends StatefulWidget {
 class _BiolocatorAppState extends State<BiolocatorApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text("Home Screen"),
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          color: Colors.red,
+        ),
+      ),
     );
   }
 }
