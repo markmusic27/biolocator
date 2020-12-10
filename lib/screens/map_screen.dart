@@ -11,16 +11,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(),
-          ),
-          Expanded(
-            child: Container(color: Colors.blue),
-          )
-        ],
-      ),
+      body: Container(),
     );
   }
 }

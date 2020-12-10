@@ -12,6 +12,7 @@ dependencies:
   location: ^3.0.0
   envify: 1.0.6
   twilio_flutter: ^0.0.5
+  google_maps_flutter: ^1.0.6
   flutter:
     sdk: flutter
 

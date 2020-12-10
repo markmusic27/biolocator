@@ -9,6 +9,8 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="biolocator"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCMyeUH1XlCBAAf5QTwHk7sLV3wAqDbvwk"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
