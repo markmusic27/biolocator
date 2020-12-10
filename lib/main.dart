@@ -17,7 +17,7 @@ class BiolocatorApp extends StatelessWidget {
         DashboardScreen.id: (context) => DashboardScreen(),
         MapScreen.id: (context) => MapScreen(),
       },
-      initialRoute: DashboardScreen.id,
+      initialRoute: WelcomeScreen.id,
     );
   }
 }

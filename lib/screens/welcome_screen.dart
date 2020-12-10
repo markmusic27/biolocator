@@ -53,6 +53,9 @@ class ButtonDisplay extends StatelessWidget {
           Expanded(
             flex: 1,
             child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'dashboard_screen');
+              },
               child: Padding(
                 padding: EdgeInsets.all(32.0),
                 child: Container(
